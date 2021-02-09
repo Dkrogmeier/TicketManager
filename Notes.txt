@@ -1,0 +1,19 @@
+02/02
+created web app .Net program
+created Class - Ticket
+
+MVC = Models, Views, and Controllers
+
+create Class -> create Controller using Entity Framework, under data context class, change TITLEContext to ApplicationDbContext, this is called scaffolding
+
+add migration == go to Package Manager Console, type enable-migrations, then add-migrations "title", this will add a migration to your solution explorer window. This creates an Object relation mapper, it maps a class to a table. 
+ORM allows computer to generate data tables. Updates database using migrations, useful for simple apps
+Data Access Object - manual create tables, write own sql statements, provides more visibility.
+
+update-database to update. 
+
+In SQL server, navigate to local, databases, find name of your project, tables, dbo.'class'
+This shows the database
+
+
+Goals:
