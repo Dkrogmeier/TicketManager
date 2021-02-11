@@ -18,6 +18,7 @@ namespace TicketManager.Models
         [StringLength(30)]
         public string Title { get; set; }
 
+        [Required]
         [Display(Name = "Ticket Type")]
         public string WOTicketType { get; set; }
         //public IEnumerable<SelectListItem> WOTypes { get; set; }
