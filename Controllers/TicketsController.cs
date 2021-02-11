@@ -22,26 +22,21 @@ namespace TicketManager.Controllers
 
         public async Task<IActionResult> Index(string sortOrder)
         {
-            ViewData["typeSortParm"] = String.IsNullOrEmpty(sortOrder) ? "tickettype_desc" : "";
-            ViewData["RequestSortParm"] = sortOrder == "AssignedTo" ? "assign_desc" : "assign_asc";
-            var students = from s in _context.Ticket
+            ViewData["AssignSortParm"] = String.IsNullOrEmpty(sortOrder) ? "assignedto_desc" : "";
+            
+            var tickets = from s in _context.Ticket
                            select s;
             switch (sortOrder)
             {
-                case "tickettype_desc":
-                    students = students.OrderByDescending(s => s.WOTicketType);
+                case "assignedto_desc":
+                    tickets = tickets.OrderByDescending(s => s.AssignedTo);
                     break;
-                case "assign_desc":
-                    students = students.OrderBy(s => s.AssignedTo);
-                    break;
-                case "assign_asc":
-                    students = students.OrderByDescending(s => s.AssignedTo);
-                    break;
+                
                 default:
-                    students = students.OrderBy(s => s.Status);
+                    tickets = tickets.OrderBy(s => s.AssignedTo);
                     break;
             }
-            return View(await students.AsNoTracking().ToListAsync());
+            return View(await tickets.AsNoTracking().ToListAsync());
         }
 
         public IActionResult ShowSearchForm()

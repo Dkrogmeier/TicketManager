@@ -1,5 +1,5 @@
 ﻿@model IEnumerable<TicketManager.Models.Ticket>
-
+@using TicketManager.Models
 @{
     ViewData["Title"] = "Index";
 }
@@ -16,13 +16,13 @@
                 @Html.DisplayNameFor(model => model.Title)
             </th>
             <th>
-                <a asp-action="Index" asp-route-sortOrder="@ViewData["typeSortParm"]">@Html.DisplayNameFor(model => model.WOTicketType)</a>
+                @Html.DisplayNameFor(model => model.WOTicketType)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.AssignedTo)
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["AssignSortParm"]">@Html.DisplayNameFor(model => model.AssignedTo)</a>
             </th>
             <th>
-                <a asp-action="Index" asp-route-sortOrder="@ViewData["RequestSortParm"]">@Html.DisplayNameFor(model => model.RequestedBy)</a>
+                @Html.DisplayNameFor(model => model.RequestedBy)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Notes)
@@ -34,32 +34,33 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.WOTicketType)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AssignedTo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RequestedBy)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Notes)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Status)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.TicketID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.TicketID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.TicketID">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.WOTicketType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AssignedTo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RequestedBy)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Notes)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.TicketID">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.TicketID">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.TicketID">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

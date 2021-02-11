@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TicketManager.Data;
 
 namespace TicketManager.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210210032646_update6")]
+    partial class update6
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -230,8 +232,7 @@ namespace TicketManager.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Notes")
-                        .HasColumnType("nvarchar(75)")
-                        .HasMaxLength(75);
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("RequestedBy")
                         .HasColumnType("nvarchar(max)");
@@ -239,10 +240,12 @@ namespace TicketManager.Data.Migrations
                     b.Property<string>("Status")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("TicketType")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasColumnType("nvarchar(30)")
-                        .HasMaxLength(30);
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("WOTicketType")
                         .HasColumnType("nvarchar(max)");
