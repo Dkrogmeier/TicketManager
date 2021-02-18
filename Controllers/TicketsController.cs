@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -20,12 +21,18 @@ namespace TicketManager.Controllers
         }
 
 
-        public async Task<IActionResult> Index(string sortOrder)
+        public async Task<IActionResult> Index(string sortOrder, string searchString)
         {
             ViewData["AssignSortParm"] = String.IsNullOrEmpty(sortOrder) ? "assignedto_desc" : "";
+            ViewData["CurrentFilter"] = searchString;
             
             var tickets = from s in _context.Ticket
                            select s;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                tickets = tickets.Where(s => s.AssignedTo.Contains(searchString)
+                                       || s.RequestedBy.Contains(searchString));
+            }
             switch (sortOrder)
             {
                 case "assignedto_desc":
@@ -63,6 +70,7 @@ namespace TicketManager.Controllers
         }
 
         // GET: Tickets/Create
+        [Authorize]
         public IActionResult Create()
         {
             return View();
@@ -71,6 +79,7 @@ namespace TicketManager.Controllers
         // POST: Tickets/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("TicketID,Title,WOTicketType,AssignedTo,RequestedBy,Notes")] Ticket ticket)
@@ -85,6 +94,7 @@ namespace TicketManager.Controllers
         }
 
         // GET: Tickets/Edit/5
+        [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -103,6 +113,7 @@ namespace TicketManager.Controllers
         // POST: Tickets/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("TicketID,Title,TicketType,AssignedTo,RequestedBy,Notes")] Ticket ticket)

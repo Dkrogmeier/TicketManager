@@ -31,7 +31,9 @@ namespace TicketManager.Models
         
         [StringLength(75)]
         public string Notes { get; set; }
-        public string Status { get; set; }
+
+        [Display(Name = "Date Created")]
+        public string DateAdded { get; set; }
 
 
 

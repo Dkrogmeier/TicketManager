@@ -2,12 +2,27 @@
     ViewData["Title"] = "Home Page";
 }
 
+
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
+    <h1 class="display-4">to</h1>
+    <h1 class="display-4">-TICKETMANAGER-</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
     <p> The time on the server is @DateTime.Now</p>
-    <img src="pic_trulli.jpg" alt="Italian Trulli">
+    <ul class="list-group">
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            <a asp-controller="Tickets" asp-action="Index">Inspections</a>
+            <span class="badge badge-primary badge-pill">14</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            <a asp-controller="Tickets" asp-action="Index">Repair</a>
+            <span class="badge badge-primary badge-pill">2</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            <a asp-controller="Tickets" asp-action="Index">Preventative</a>
+            <span class="badge badge-primary badge-pill">1</span>
+        </li>
+    </ul>
+    <img src ="/Images/well-organized-garage-tool-setup.jpg" style=" filter:blur(6px)"/>
 </div>
-<div>
-    <p> The time on the server in this spot is @DateTime.Now</p>
-</div>
+
