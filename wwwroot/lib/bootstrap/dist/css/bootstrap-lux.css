@@ -166,7 +166,7 @@ a {
 }
 
 a:link {
-  color: #4bbf73;
+  color: #55595c;
   text-decoration: none;
   background-color: transparent;
 }
@@ -6600,7 +6600,7 @@ button.bg-dark:focus {
 }
 
 .border-bottom {
-  border-bottom: 1px solid #eceeef !important;
+  border-bottom: #f0ad4e solid 3px !important;
 }
 
 .border-left {

@@ -60,6 +60,17 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
   display: block;
 }
 
+.cover {
+    object-fit: cover;
+    width: 50px;
+    height: 100px;
+}
+
+#homepage {
+    min-height:400px;
+    background:url(../Images/well-organized-garage-tool-setup.jpg) no-repeat 0 -400px;
+}
+
 body {
   margin: 0;
   font-family: Lato, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
@@ -6856,6 +6867,7 @@ button.bg-dark:focus {
 
 .border-bottom {
   border-bottom: 1px solid #dee2e6 !important;
+  border-bottom: #df691a 3px solid;
 }
 
 .border-left {
@@ -10575,3 +10587,4 @@ label,
 .modal-header, .modal-footer {
   background-color: rgba(255, 255, 255, 0.075);
 }
+
