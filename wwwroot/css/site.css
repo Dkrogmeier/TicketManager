@@ -65,6 +65,11 @@ body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
 }
+
+html,body {
+    height:80%;
+}
+
 .footer {
   position: absolute;
   bottom: 0;
@@ -75,4 +80,32 @@ body {
 
 #footer {
   color: #f0ad4e;
+}
+
+#homepage {
+    background: url("/Images/well-organized-garage-tool-setup.jpg");
+    /*style: "filter:blur(6px)";
+    class: "cover";*/
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+    height: 100%;
+    width: 100%;
+}
+
+.bg-text {
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+    color: white;
+    font-weight: bold;
+    border: 3px solid #f0ad4e;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 80%;
+    padding: 20px;
+    text-align: center;
 }
