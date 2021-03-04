@@ -64,4 +64,4 @@
 
 
 * linguist-vendored
-* .cs linguist-vendored=false
+* .cs linguist-vendored=true
