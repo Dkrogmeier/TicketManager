@@ -3,75 +3,76 @@
 @{
     ViewData["Title"] = "Index";
 }
+<div class="text-center bg-text">
+    <h1>Ticket List</h1>
 
-<h1>Index</h1>
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+    <form asp-action="Index" method="get">
+        <div class="form-actions no-color">
+            <p>
+                Find by name: <input type="text" name="SearchString" value="@ViewData["CurrentFilter"]" />
+                <input type="submit" value="Search" class="btn btn-default" /> |
+                <a asp-action="Index">Back to Full List</a>
+            </p>
+        </div>
+    </form>
 
-<form asp-action="Index" method="get">
-    <div class="form-actions no-color">
-        <p>
-            Find by name: <input type="text" name="SearchString" value="@ViewData["CurrentFilter"]" />
-            <input type="submit" value="Search" class="btn btn-default" /> |
-            <a asp-action="Index">Back to Full List</a>
-        </p>
-    </div>
-</form>
-
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Title)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.WOTicketType)
-            </th>
-            <th>
-                <a asp-action="Index" asp-route-sortOrder="@ViewData["AssignSortParm"]">@Html.DisplayNameFor(model => model.AssignedTo)</a>
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.RequestedBy)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Notes)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DateAdded)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
+    <table class="table">
+        <thead>
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Title)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.WOTicketType)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.AssignedTo)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.RequestedBy)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Notes)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DateAdded)
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.TicketID">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.TicketID">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.TicketID">Delete</a>
-                </td>
+                <th>
+                    @Html.DisplayNameFor(model => model.Title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.WOTicketType)
+                </th>
+                <th>
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["AssignSortParm"]">@Html.DisplayNameFor(model => model.AssignedTo)</a>
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.RequestedBy)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Notes)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DateAdded)
+                </th>
+                <th></th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.WOTicketType)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AssignedTo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RequestedBy)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Notes)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateAdded)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.TicketID">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.TicketID">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.TicketID">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

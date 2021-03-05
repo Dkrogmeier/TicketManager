@@ -9,7 +9,7 @@ a.navbar-brand {
 
 /* Provide sufficient contrast against white background */
 a {
-  color: rgb(128, 128, 128)
+  color: #fff
 }
 
 .btn-primary {
@@ -65,11 +65,8 @@ body {
     /* Margin bottom by footer height */
     margin-bottom: auto;
     margin-top: auto;
-    background-color:bisque;
-    /*background-image: url("../Images/well-organized-garage-tool-setup.jpg");
-    background-position: center;*/ /* Center the image */
-    /*background-repeat: no-repeat;*/ /* Do not repeat the image */
-    /*background-size: cover;*/
+    background: linear-gradient(rgb(0,0,0), rgb(128, 128, 128));
+    z-index:2;
 }
 
 html,body {
@@ -94,24 +91,26 @@ html,body {
     class: "cover";*/
     background-repeat: no-repeat;
     background-size: cover;
-    filter: blur(8px);
-    -webkit-filter: blur(8px);
-    height: 100%;
-    width: 100%;
+    /*filter: blur(8px);
+    -webkit-filter: blur(8px);*/
+    height: 850px;
+    width: auto;
+    z-index: 1;
 }
 
 .bg-text {
     background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+    background-color: rgba(0,0,0, 0.8); /* Black w/opacity/see-through */
     color: white;
     font-weight: bold;
-    border: 3px solid #f0ad4e;
+    /*border: 3px solid #f0ad4e;*/
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 2;
+    z-index: 999;
     width: 80%;
     padding: 20px;
     text-align: center;
 }
+

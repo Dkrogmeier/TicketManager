@@ -66,7 +66,7 @@ body {
     font-size: 0.875rem;
     font-weight: 400;
     line-height: 1.5;
-    color: #55595c;
+    color: white;
     text-align: left;
 }
 
@@ -166,13 +166,13 @@ a {
 }
 
 a:link {
-  color: #55595c;
+  color: #fff;
   text-decoration: none;
   background-color: transparent;
 }
 
 a:hover {
-  color: black;
+  color: #f0ad4e;
   text-decoration: underline;
 }
 
@@ -595,7 +595,7 @@ pre code {
 
 @media (min-width: 1200px) {
   .container, .container-sm, .container-md, .container-lg, .container-xl {
-    max-width: 1140px;
+    max-width: 1800px;
   }
 }
 
@@ -1684,7 +1684,7 @@ pre code {
 .table {
   width: 100%;
   margin-bottom: 1rem;
-  color: #55595c;
+  color: #fff;
 }
 
 .table th,
@@ -2525,7 +2525,7 @@ textarea.form-control {
 .btn {
   display: inline-block;
   font-weight: 600;
-  color: #55595c;
+  color: #fff;
   text-align: center;
   vertical-align: middle;
   -webkit-user-select: none;
@@ -5372,11 +5372,12 @@ a.badge-dark:focus, a.badge-dark.focus {
 }
 
 .list-group-item {
-  position: relative;
-  display: block;
-  padding: 0.75rem 1.25rem;
-  background-color: #fff;
-  border: 1px solid rgba(0, 0, 0, 0.125);
+    position: relative;
+    display: block;
+    padding: 0.75rem 1.25rem;
+    background-color: rgba(0,0,0, 0.6);
+    border: 1px solid #ec971f;
+    border-radius: 15px;
 }
 
 .list-group-item.disabled, .list-group-item:disabled {
