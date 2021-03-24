@@ -13,7 +13,7 @@ namespace TicketManager.Models
         [Key]
         [Display(Name = "Ticket ID")]
         public int TicketID { get; set; }
-        
+
         [Required]
         [StringLength(30)]
         public string Title { get; set; }
@@ -21,6 +21,15 @@ namespace TicketManager.Models
         [Required]
         [Display(Name = "Ticket Type")]
         public string WOTicketType { get; set; }
+
+        //public List<SelectListItem> TicketTypes { get; } = new List<SelectListItem>
+        //{
+        //    new SelectListItem { Value = "request", Text = "Request" },
+        //    new SelectListItem { Value = "repair", Text = "Repair" },
+        //    new SelectListItem { Value = "preventative", Text = "Preventative" },
+        //    new SelectListItem { Value = "inspection", Text = "Inspection" },
+        //};
+
         //public IEnumerable<SelectListItem> WOTypes { get; set; }
 
         [Display(Name = "Assigned To")]
