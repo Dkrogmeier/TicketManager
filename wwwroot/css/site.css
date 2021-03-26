@@ -93,7 +93,7 @@ html,body {
     background-size: cover;
     /*filter: blur(8px);
     -webkit-filter: blur(8px);*/
-    height: 850px;
+    height: 85vh;
     width: auto;
     z-index: 1;
 }
